@@ -44,10 +44,10 @@ router.post('/', async function(req, res, next){
 
     try{
         
-        const product = await ProductsServices.createProducts({ product });
+        const createProduct = await ProductsServices.createProducts({ product });
 
         res.status(201).json({
-            data: product,
+            data: createProduct,
             message: "product listed"
         });
         }catch(err){

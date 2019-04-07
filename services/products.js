@@ -14,20 +14,24 @@ class ProductsService {
         return products || []; 
     }
 
-    getProduct({ productId }){
-        return Promise.resolve(productsMocks[0]);
+    async getProduct({ productId }){
+        const product = await this.mongoDB.get(this.collection, productId);
+        return product || {};
     }
 
-    createProducts({ product }){
-        return Promise.resolve(productsMocks[0]);
+    async createProducts({ product }){
+        const createProductId = await this.mongoDB.create(this.collection, product);
+        return createProductId;
     }
 
-    updateProducts({ productId, product }){
-        return Promise.resolve(productsMocks[0]);
+    async updateProducts({ productId, product }){
+        const updateProductId = await this.mongoDB.update(this.collection, productId, product);
+        return updateProductId;
     }
 
-    deleteProducts({ productId }){
-        return Promise.resolve(productsMocks[0]);
+    async deleteProducts({ productId }){
+        const deleteProductId = await this.mongoDB.delete(this.collection, productId);
+        return deleteProductId;
     }
 
 
