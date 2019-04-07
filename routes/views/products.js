@@ -8,7 +8,8 @@ router.get('/', async function (req, res, next)  {
 
     const {tag} = req.query;
     try{
-    const products = productsService.getProducts({tag})
+    const products = await productsService.getProducts({tag})
+    console.log(products);
     res.render('products', {products});
     }catch(err){
         next(err);
