@@ -1,8 +1,10 @@
 //Validacion de datos
+const joi = require('joi');
 
 //esta funcion recibe los datos del usuario y un schema de como deberian ser los datos, devuelve un error
 function validate(data, schema){
-    return false;
+    const { error } = joi.validate(data, schema);
+    return error;
 }
 
 //con la fucion validate comparamos la data del body con el schema  y en caso de devolver un error nos informa

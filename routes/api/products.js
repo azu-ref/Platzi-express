@@ -2,6 +2,11 @@ const express = require('express');
 const router = express.Router();
 const ProductsService = require('../../services/products')
 
+const { productIdSchema, 
+    productTagSchema, 
+    createProductSchema, 
+    updateProductSchema } = require('../../utils//schemas/products')
+
 const ProductsServices = new ProductsService();
 
 router.get('/', async function(req, res, next){
