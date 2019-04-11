@@ -11,7 +11,7 @@ router.get('/', async function (req, res, next)  {
     try{
     //throw new Error('This is an error');
     const products = await productsService.getProducts({tag})
-    console.log(products);
+    //console.log(products);
     res.render('products', {products});
     }catch(err){
         next(err);
